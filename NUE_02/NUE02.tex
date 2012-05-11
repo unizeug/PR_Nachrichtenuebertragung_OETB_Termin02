@@ -17,6 +17,48 @@
 
 \input{../../packages/tu_header_8}
 
+
+% \lstlistoflistings
+\definecolor{darkgray}{rgb}{0.95,0.95,0.95}
+\definecolor{darkolivegreen}{HTML}{01a801}
+\definecolor{functionsBlue}{HTML}{32b9b9}
+\definecolor{variableRed}{rgb}{1,0,0}
+\definecolor{stringBrown}{HTML}{bc8e8e} % f geht nicht
+
+\lstset{
+        %\lstset{extendedchars=true} % Umlaute an der richtigen stelle und nicht am Anfang ausgeben
+        %basicstyle=\footnotesize\ttfamily,
+        basicstyle=\small,
+        %
+        inputencoding=utf8,
+        %
+        tabsize=4,
+        showspaces=false,
+        showtabs=false,
+        showstringspaces=true, % no special string spaces
+        %
+        backgroundcolor=\color{darkgray}, % background
+        stringstyle=\color{stringBrown}\fseries, % Strings
+        keywordstyle=\color{functionsBlue}\bfseries, % keywords Blau
+        identifierstyle=\color{variableRed}, % variablen
+        commentstyle=\color{darkolivegreen}, %  comments
+        %
+        breaklines=true,
+        %
+        numbers=left,
+        numberstyle=\tiny,
+        stepnumber=1,
+        numbersep=7pt,
+        %
+        frame=single,
+        columns=flexible,
+        %
+        xleftmargin=-2cm,
+        xrightmargin=-1.5cm,
+        %
+        language=Matlab
+}
+
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
@@ -66,31 +108,208 @@
 %--------------------------------------------------------------------
 %--------------------------------------------------------------------            
 \section{Praktische Aufgaben}
-
+\begin{quote}
+    \subsection{Simulation eines Zufallsexperiments in Matlab}
     \begin{quote}
+        Im ersten Teil des Labortermins haben wir uns mit der Simulation eines Zufallsexperiments beschäftigt. Dazu
+        haben wir die Vorgegebene Datei Aufgabe1.m stückweise erweitert. In der Ursprungsversion simuliert Aufgabe1.m
+        ein Zufgallsereigniss mit 10000 Würfen eines Würfels und plottet anschließend das Histogramm dieser
+        Simulation.\\
         
+        \subsubsection{10000 facher  Wurf eines Würfels}
+		\begin{quote}
+        Im ersten Teil haben wir die Datei so ergänzt, dass die Wahrscheinlichkeitsverteilungsdichtefunktion von diesem
+        Zufallsereigniss dargestllt wurde. Dazu haben wir die Anzahl der Treffer durch die Anzahl der Würfe geteilt
+        und das Ergebiss plotten lassen. Da es sich um einen fairen Würfel handelt erwarten wir eine gleichmäßig
+        verteilte Verteilungsdichtefunktion.
+		\end{quote}
+        
+        \subsubsection{10000 facher Wurf zweier Würfel}
+		\begin{quote}
+			Im zweiten Teil haben wir die Simulation soweit verändert, dass bei jedem Wurf zwei Würfel simmuliert wurden deren
+			Augenzahl aufsummiert wurden. Damit auch der zweite Würfel unabhängig simuliert wird haben wir einen zweiten Vektor
+			erstellt mit einem zufälligen $10000$-fachen Würfelereigniss und die beiden Vektoren addiert. In hinblick auf die
+			folgende Aufgabe, bei der wesentlich mehr Würfel pro wurf addiert werden sollten, wurde uns aber auch beigebracht,
+			dass die rand-funktion schon eine Lösung für dieses Problem integriert hat. Und desshalb haben wir anstatt des
+			zweiten Vektors einfach den zweiten Parameter der rand-funktion auf zwei gestellt und somit unabhängige Würfel
+			simuliert.\\
+			Auch von diesem Experiment haben wir die Verteilungsdichtefunktion errechnet und plotten lassen.\\
+			Da sich die Verteilungsdichtefunktion von zwei statistisch unabhängigen Erignissen auch als Faltung der einzelnen
+			Verteilungsdichtefunktinen darstellen lassen kann erwarten wir in diesem Fall eine Dreieckförmige
+			Verteilungsdichtefunktion.
+		\end{quote}
+        
+        \subsubsection{10000 facher Wurf meherer Würfel}
+		\begin{quote}
+			Um den zentralen Grenzwertsatz der Statistik nachzuvollziehen erhöhen wir schrittweise die Anzahl der Würfel, die
+			miteinander addiert werden, und erstellen deren Verteilungsdichtefunktionen. Laut Grenzwertsatz erwarten wir, dass
+			sich die resultierende Verteilungsdichtefunktion sich an eine Gaußverteilung anpasst.
+		\end{quote}
 		
+		\subsubsection{Verteilungsdichtefunktionen der einzelnen Versuche}
+		\begin{quote}    
+                                %4 Grafiken:
+            \begin{center}
+            \begin{tabular}{ll}
+
+            \hspace{-14em}
+                \begin{minipage}{0.6\textwidth}
+
+                    \begin{figure}[H]
+                        \label{fig:}
+                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/1wuerfelpdf} %FIXME
+                        % [width=640px,
+                         %height=474px]
+                        \caption{PDF 1 Würfel 10000 Würfe}
+                    \end{figure}
+
+                \end{minipage}
+                \begin{minipage}{0.6\textwidth}
+
+                    \begin{figure}[H]
+                        \label{fig:}
+                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/2wuerfelpdf} %FIXME
+                        % [width=640px,
+                         %height=474px]
+                        \caption{PDF 2 Würfel 10000 Würfe}
+                    \end{figure}
+                \vspace{-1.5em}
+
+                \end{minipage}
+
+            \end{tabular}
+            \end{center}
+
+                        %4 Grafiken:
+            \begin{center}
+            \begin{tabular}{ll}
+
+            \hspace{-14em}
+                \begin{minipage}{0.6\textwidth}
+
+                    \begin{figure}[H]
+                        \label{fig:}
+                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/10wuerfelpdf} %FIXME
+                        % [width=640px, height=474px]
+                        \caption{PDF 10 Würfel 10000 Würfe}
+                    \end{figure}
+
+                \end{minipage}
+                \begin{minipage}{0.6\textwidth}
+
+                     \begin{figure}[H]
+                        \label{fig:}
+                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/100wuerfelpdf} %FIXME
+                        % [width=640px, height=474px]
+                        \caption{PDF 100 Würfel 10000 Würfe}
+                    \end{figure}
+               \vspace{-1.5em}
+
+                \end{minipage}
+
+            \end{tabular}
+            \end{center}
+
+                        %4 Grafiken:
+            \begin{center}
+            \begin{tabular}{ll}
+
+            \hspace{-28em}
+                \begin{minipage}{0.6\textwidth}
+
+                    \begin{figure}[H]
+                        \label{fig:}
+                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/1000wuerfelpdf} %FIXME
+                        % [width=640px, height=474px]
+                        \caption{PDF 1000 Würfel 10000 Würfe}
+                    \end{figure}
+
+                \end{minipage}
+
+            \end{tabular}
+            \end{center}
+    \end{quote}	
+    
+    \subsection{Rauschbehafteter Übertagungskanal}
+    \begin{quote}
+        Im nächsten Abschnitt haben wir uns mit einem Rauschbehafteten Übertragungskanal beschäftigt. Hierfür haben wir
+        an dem Telecommunications Trainer ein Pseudozufälliges Signal erzeugt und additiv Rauschen hinzugefügt(beim
+        ersten Durchgang $-20dB$, beim zweiten $-6dB$ und beim letzten $0dB$.\\
+        Anschließend haben wir das Originalsignal sowie das verrauschte Signal mit Hilfe des USB Oszilloskops
+        aufgenommen. Dank dieser Messung lässt sich nun auch noch die Mittelwerte der beiden Kanäle miteinander
+        vergleichen. Da es sich um das selbe Urspungssignal handlet lässt sich so besimmen ob die beiden Signale
+        zueinander versetzt sind und evt noch korrigiert werden müssen.\vspace{1em}
+        
+        Nach dieser Korrektur haben wir die Verteilungsdichtefunkton des Rauschens bestimmt und geplottet. Abschließend
+        haben wir noch das Signal-Rausch-Verhältniss der gemessenen Signale bestimmt. Dazu haben wir die Energie des
+        Eingangs- und Ausgangssignal bestimmt und aus dem Verhältniss das Signal-Rausch-Verhältniss bistimmt.\\
+        Für die Berechnung des SNR wird ursprünglich die Leistung der beiden Signale benötigt. Die Leistung
+        Zeitdiskreter Signale werden folgendermaßen bestimmt:
+        \begin{equation*}
+        	\begin{split}
+        		P_u(n_1, n_2) := \frac{1}{n_2 - n_1 + 1} \sum_{k=n_1}^{n_2} u^2 (k)
+        	\end{split}
+        \end{equation*}
+        
+        Die Variablen $n_1,n_2$ beschreiben zusammen das Zeitintervall des Signals. Da das Eingangssignal und das
+        Ausgangssignal unserer Messung über das selbe Zeitintervall bestimmt wird kürzen sich bei der Berechnung des SNR
+        dieses Zeitintervall gegenseitig raus und es reicht mit dem Energieverhältniss zu rechnen.
+
+        \subsubsection{Ergebnisse}
+		\begin{quote}
+		
+		\begin{figure}[H]
+        \centering
+            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen-20dB}
+                \caption{PDF Rauschanteil -20dB}
+        \end{figure}
+        
+        \begin{figure}[H]
+        \centering
+            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen-6dB}
+                \caption{PDF Rauschanteil -6dB}
+        \end{figure}
+        
+        \begin{figure}[H]
+        \centering
+            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen0dB}
+                \caption{PDF Rauschanteil 0dB}
+        \end{figure}
+    
+
+    \end{quote}	
 \end{quote}	
 
 
-%--------------------------------------------------------------------
-%--------------------------------------------------------------------
-\section{Fazit}
-\begin{quote}
-     
-\end{quote}
+
 
 %--------------------------------------------------------------------
 %--------------------------------------------------------------------
 \section{Matlab-Code}
 \begin{quote}
-%     \subsection{Aufgabe1.m bearbeitet}
-%     \begin{quote}
-%             \lstinputlisting[
-%             caption={Aufgabe1 - Matlab-script},
-%             label=lst:Matlab]
-%             {./Matlab/Aufgabe1.m}
-%     \end{quote}
+    \subsection{Aufgabe1.m bearbeitet}
+    \begin{quote}
+            \lstinputlisting[
+            caption={Aufgabe1 - Matlab-script},
+            label=lst:Matlab]
+            {./Matlab/Aufgabe1.m}
+    \end{quote}
+    
+    \subsection{Aufgabe2.m bearbeitet}
+    \begin{quote}
+            \lstinputlisting[
+            caption={Aufgabe2 - Matlab-script},
+            label=lst:Matlab]
+            {./Matlab/Aufgabe2.m}
+    \end{quote}
+    
+    \subsection{SNR.m bearbeitet}
+    \begin{quote}
+            \lstinputlisting[
+            caption={SNR - Matlab-script},
+            label=lst:Matlab]
+            {./Matlab/SNR.m}
+    \end{quote}
     	
 \end{quote}
 
