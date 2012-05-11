@@ -253,7 +253,10 @@
         
         Die Variablen $n_1,n_2$ beschreiben zusammen das Zeitintervall des Signals. Da das Eingangssignal und das
         Ausgangssignal unserer Messung über das selbe Zeitintervall bestimmt wird kürzen sich bei der Berechnung des SNR
-        dieses Zeitintervall gegenseitig raus und es reicht mit dem Energieverhältniss zu rechnen.
+        dieses Zeitintervall gegenseitig raus und es reicht mit dem Energieverhältniss zu rechnen.\\
+        Bei den Signal-Rausch-Verhältniss Werten ist zu erwarten, dass sie sich für steigendes Rauschen verschlechtern
+        werden. Sprich die Messung bei $-20dB$ Rauschen wird den höhsten SNR Wert aufweisen und die Messung bei $0dB$
+        Rauschen den schlechtesten.
 
         \subsubsection{Ergebnisse}
 		\begin{quote}
@@ -290,11 +293,14 @@
                    $-20$ &  17.1228 \\ \hline
                    $-6$ &  2.9721 \\ \hline
                    $0$ &  -1.9448 \\ \hline           
-                 \end{tabular}
-                       \caption{SNR des Rauschens}            
+                 \end{tabular}\vspace{1em}
+                 
+            \caption{SNR des Rauschens}            
             \end{center}
     
-
+        Bei dem Signal-Rausch-Verhältniss fällt auf, dass bei $14dB$ mehr Rauschen das SNR um $14dB$ absinkt. Und
+        genauso beim nächsten Schritt von $6dB$ fällt das SNR um $5dB$. Daher kann man schon von einem linearen
+        zusammenhang sprechen. Ein solches Verhalten haben wir erwartet. 
     \end{quote}	
 \end{quote}	
 

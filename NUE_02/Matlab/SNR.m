@@ -5,8 +5,8 @@ function result = SNR(U,N)
 
 %% Berechnung der Energien
 
-E_U = sum(U.*U)
-E_N = sum(N.*N)
+E_U = sum(U.*U);
+E_N = sum(N.*N);
 
 %% Berechung des SNRs
 
