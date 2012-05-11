@@ -19,22 +19,30 @@ y=sum(x,2);
 
 H2 = H/10000;
 
-mw = mean(bins);                   %Mittelwert
-v = var(bins);                     %varianz   
-f = 1/(sqrt(v*2*pi)).*exp(-(1/2).*((bins-mw)/sqrt(v)).^2);
+%Mittelwert
+mw = mean(bins*H2);
+%Varianz
+v = var(bins,H);
+%Standartabweichung
+s = std(bins,H);
+
 %Gauß-Funktion mit Mittwelwert und Varianz von R zum Überlagern
+g = (1/(s*sqrt(2*pi)))*exp(-(1/2).*((bins-mw)./s).^2);
+g2=g/sum(g);
 
 
 figure(2);clf(2);
 bar(bins,H2);
 hold on
-plot(bins,f,'r');
+plot(bins,g2,'r');
 title('pdf des Würfelexperiments')
 xlabel('Augenzahl')
+ylabel('Wahrscheinlichkeit')
+hold off
 
 
 %% Darstellung der pdf
 % figure(1);
-% title('pdf des WÃ¼rfelexperiments')
+% title('pdf des Würfelexperiments')
 % xlabel('Augenzahl')
 % bar(bins,H);
