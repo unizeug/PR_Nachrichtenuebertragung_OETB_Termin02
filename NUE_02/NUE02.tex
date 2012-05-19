@@ -64,7 +64,11 @@
 %---------------------------------------------------------------------
 \section{Einleitung}
 
-
+    In diesem Praktikumstermin haben wir uns mit den Themen Verteilungsdichtefunktionen und rauschbehafteter
+    Übertragungskanal beschäftigt. Dazu haben wir zuerst mit Hilfe von Matlab verschiedener Zufallsexperimente
+    simuliert, danach deren Verteilungsdichtefunktionen bestimmt und miteinander verglichen.
+    Anschließend haben wir mit dem Telecommunications Trainer einen rauschbehafteten Übertragungskanal ausgemessen und
+    die Dämpfungseigenschaften sowie die Rauschcharakteristik bestimmt.
 
 
 \section{Vorbereitungsaufgaben}
@@ -106,79 +110,124 @@
 
 
 %--------------------------------------------------------------------
-%--------------------------------------------------------------------            
-\section{Praktische Aufgaben}
+%-------------------------------------------------------------------- 
+\section{Verteilungsdichtefunktion}
 \begin{quote}
-    \subsection{Simulation eines Zufallsexperiments in Matlab}
+	
+	\subsection{Theorie}
     \begin{quote}
-        Im ersten Teil des Labortermins haben wir uns mit der Simulation eines Zufallsexperiments beschäftigt. Dazu
-        haben wir die Vorgegebene Datei Aufgabe1.m stückweise erweitert. In der Ursprungsversion simuliert Aufgabe1.m
-        ein Zufallsereigniss mit 10000 Würfen eines Würfels und plottet anschließend das Histogramm dieser
-        Simulation.\\
+        Bei einer Verteilungsdichtefunktion handelt es sich um eine Funktion mit deren hilfe man die Wahrscheinlichkeit
+        eines Ereignissintervalls bestimmen kann. Hierfür wird die Verteilungsdichtefunktion über dieses
+        Ereignissintervall integriert. Diese Art der Darstellung von Wahrscheinlichkeitsereignissen bietet sich
+        besonders bei stetigen Verteilungen an.\vspace{1em}
         
+        In dem Fall einer stetigen Verteilung ist die Wahrscheinlichkeit für das Auftreten eines ganz speziellen
+        Ereignisses immer gleich null. Die Wahrscheinlichkeit für das Auftreten eines Erignissintervalls, das dieses
+        spezielle Ereigniss enthält, ist jedoch größer null.\\
+        Ein Beispiel hierfür ist die Verspätung von Zügen. Die Wahrscheinlichkeit, dass ein Zug exakt $5$ min Verspätung
+        hat ist gleich null, da dieses Ereigniss nicht eintrifft sobald die Züge in Ihrer Verspätung auch nur um $1$
+        nanosekunde abweichen. Jedoch lässt sich die Wahrscheinlichkeit bestimmen, das ein Zug eine Verspätung zwischen
+        $4,55$ min und $5,05$ min hat.\vspace{1em}
+        
+    \end{quote}
+	
+	\subsection{Simulation meherer Zufallsexperimente in Matlab}
+    \begin{quote}
+        Um mehrere Verteilungsdichtefunktionen zu plotten haben wir meherere Zufallsereignisse mit Matlab simuliert.\\
+        Zu Beginn des Praktikums wurde uns hierfür die Datei Aufgabe1.m zur verfügung gestellt, die wir im Verlauf
+        stückweise erweitert haben.\\
+        In der Ursprungsversion simuliert Aufgabe1.m ein Zufallsereigniss mit 10000 Würfen eines Würfels und plottet
+        anschließend das Histogramm dieser Simulation.\\
         \subsubsection{10000 facher  Wurf eines Würfels}
-		\begin{quote}
-        Für die erste Aufgabe haben wir die Datei so ergänzt, dass die
-        Wahrscheinlichkeitsverteilungsdichtefunktion von diesem Zufallsereigniss dargestellt wurde. Dazu haben wir die
-        Anzahl der Treffer durch die Anzahl der Würfe geteilt und das Ergebiss plotten lassen. Da es sich um einen fairen Würfel handelt erwarten wir eine gleichmäßig
-        verteilte Verteilungsdichtefunktion.
-		\end{quote}
+        \begin{quote}
+            Für die erste Teilaufgabe haben wir die Datei Aufgabe1.m so ergänzt, dass die Anzahl der Treffer durch die
+            Anzahl der Würfe geteilt wird. Dadurch errechnen wir uns die Häufigkeitsverteilung normiert wird und so ihre
+            Summe genau 1 ist. Das Ergebniss haben wir plotten lassen.
+
+        \end{quote}
         
         \subsubsection{10000 facher Wurf zweier Würfel}
-		\begin{quote}
-			Im zweiten Teil haben wir die Simulation soweit verändert, dass bei jedem Wurf zwei Würfel simmuliert wurden deren
-			Augenzahl aufsummiert wurden. Damit auch der zweite Würfel unabhängig simuliert wird haben wir einen zweiten Vektor
-			erstellt mit einem zufälligen $10000$-fachen Würfelereigniss und die beiden Vektoren addiert. In hinblick auf die
-			folgende Aufgabe, bei der wesentlich mehr Würfel pro wurf addiert werden sollten, wurde uns aber auch beigebracht,
-			dass die rand-funktion schon eine Lösung für dieses Problem integriert hat. Und desshalb haben wir anstatt des
-			zweiten Vektors einfach den zweiten Parameter der rand-funktion auf zwei gestellt und somit unabhängige Würfel
-			simuliert.\\
-			Auch von diesem Experiment haben wir die Verteilungsdichtefunktion errechnet und plotten lassen.\\
-			Da sich die Verteilungsdichtefunktion von zwei statistisch unabhängigen Erignissen auch als Faltung der einzelnen
-			Verteilungsdichtefunktinen darstellen lassen kann erwarten wir in diesem Fall eine Dreieckförmige
-			Verteilungsdichtefunktion.
-		\end{quote}
+        \begin{quote}
+            In der zweiten Teilaufgabe haben wir die Simulation soweit verändert, dass bei jedem Wurf zwei Würfel
+            simmuliert wurden deren Augenzahl aufsummiert wurden. Damit auch der zweite Würfel unabhängig simuliert wird haben wir einen zweiten Vektor
+            erstellt mit einem zufälligen $10000$-fachen Würfelereigniss und die beiden Vektoren addiert. In hinblick auf die
+            folgende Aufgabe, bei der wesentlich mehr Würfel pro wurf addiert werden sollten, wurde uns aber auch beigebracht,
+            dass die rand-funktion schon eine Lösung für dieses Problem integriert hat. Und desshalb haben wir anstatt des
+            zweiten Vektors einfach den zweiten Parameter der rand-funktion auf zwei gestellt und somit unabhängige Würfel
+            simuliert.\\
+            Auch von dieser Simulation haben wir die normierte Häufigkeitsdichte errechnet und
+            plotten lassen.\\
+        \end{quote}
         
         \subsubsection{10000 facher Wurf meherer Würfel}
+        \begin{quote}
+            Um den zentralen Grenzwertsatz der Statistik nachzuvollziehen erhöhen wir in der dritten Teilaufgabe
+            schrittweise die Anzahl der Würfel, die miteinander addiert werden. Anschließend erstellen wir jeweils die
+            Häufigkeitsdichte sowie die dazupassende geschätzte Verteilungsdichtefunktion.
+            Laut Grenzwertsatz erwarten wir, dass sich die resultierende Verteilungsdichtefunktion sich an eine Gaußverteilung anpasst.
+        \end{quote}        
+    \end{quote}
+	
+	\subsection{Auswertung}
+    \begin{quote}
+        Da es sich bei dieser Simulation um ein Diskretes ereigniss handelt werden die daraus resultierenden
+        Häufigkeitsverteilungen selbstverständlich auch diskret sein. Eine Verteilungsdichtefunktion ist hingegen eine
+        stetige Funktion. Daher lässen sich die beiden Funktionen nur an den Diskreten Punkten miteinander
+        vergleichen.\\
+        Ansonsten sit für alle Simulationen zu erwarten, dass sich die Häufigkeitsverteilungen den geschätzten
+        Verteilungsdichtefunktionen grob ähneln werden.
+        
+        \subsubsection{10000 facher Wurf eines Würfels}
+        \begin{quote}
+                In dem Zufallsexperiment gehen wir davon aus, dass jede Zahl auf dem Würfel gleich wahrscheinlich
+                gewürfelt werden kann. Außerdem wird das Experiment mit $10000$ Würfen häufig genug durchgeführt um zu
+                einer aussagekräftigen Verteilung zu kommen. Daher erwarten wir eine gleichmäßig verteilte
+                Häufigkeitsverteilung mit einem jeweiligen Wert von $\frac{1}{6}$ bzw. $0.16$.\\
+                
+                
+                \begin{figure}[H] \centering
+                    \includegraphics[scale=0.5, trim = 2cm 6.5cm 1.5cm 8.5cm, clip]{./Bilder/1wuerfelpdf}
+                        \caption{Häufigkeitsverteilung 1 Würfel 10000 Würfel}
+                \end{figure}
+                
+                Die Simulierte Häufigkeitsverteilung entspricht annähernd unseren Erwartungen. Auffällig ist jedoch,
+                dass die Zahlen $3$ und $6$ ein wenig häufiger und die Zahlen $1$, und $6$ ein wenig seltener gewürfelt
+                wurden als erwartet.
+                Diese Abweichung erklären wir uns mit damit, dass es sich ein statistisch unabhängiges Experiment
+                handelt. Daher können einige Zahlen häufiger gewürfelt werden als andere.\\
+                Je mehr Würfe wir simulieren würden desto mehr müssten sich die Simulierten Werte an die erwarteten
+                anpassen.\\
+        \end{quote}
+        
+        \subsubsection{10000 facher Wurf zweier Würfel}
+        \begin{quote}
+            Die Verteilungsdichtefunktion von zwei bzw. mehreren unabhängigen Ereignissen lässt sich auch als Faltung
+            der einzelnen Verteilungsdichtefunktionen darstellen. In Falle des einfachen Würfelwurfes hat sich die
+            Verteilungsdichtefunktion als Rechteck herausgestellt. Die Faltung von zwei Rechtecken ergint wiederum ein
+            Dreieck. Für die Verteilungsdichtefunktion von zwei Würfeln deren Augenzahlen addiert werden erwarten wir
+            daher eine Dreieckförmige Verteilungsdichtefunktion.\\
+            Die erwartete Dreieckförmige Verteilungsdichtefunktion lässt sich auch auf andere Weise erschließen. Die
+            möglichen Ereignisse dieser Simulation sind die Zahlen von $2$ bis $12$. Wobei es für die beiden äußeren
+            Ereignisse jeweils nur eine mögliche kombination der zwei Würfel gibt. Für das Ereigniss $7$ gibt es
+            hingegen $6$ verschiedene Würfelkombinationen. Daher ist das Würfeln einer $7$ auch $6$ mal Wahrscheinlicher
+            als das Würfeln einer $2$ oder $12$.\\
+            
+                \begin{figure}[H] \centering
+                    \includegraphics[scale=0.5, trim = 2cm 6.5cm 1.5cm 8.5cm, clip]{./Bilder/2wuerfelpdf}
+                        \caption{Häufigkeitsverteilung 2 Würfel 10000 Würfel}
+                \end{figure}
+            
+            Auch in dieser Simulation sind einige Abweichungen zu erkennen jedoch verhält sich die Simulation
+            größtenteils wie erwartet.\\       
+        \end{quote}
+        
+        \subsubsection{10000 facher Wurf mehrerer Würfel}
 		\begin{quote}
-			Um den zentralen Grenzwertsatz der Statistik nachzuvollziehen erhöhen wir schrittweise die Anzahl der Würfel, die
-			miteinander addiert werden, und erstellen deren Verteilungsdichtefunktionen. Laut Grenzwertsatz erwarten wir, dass
-			sich die resultierende Verteilungsdichtefunktion sich an eine Gaußverteilung anpasst.
-		\end{quote}
-		
-		\subsubsection{Verteilungsdichtefunktionen der einzelnen Versuche}
-		\begin{quote}    
-                                %4 Grafiken:
-            \begin{center}
-            \begin{tabular}{ll}
-
-            \hspace{-14em}
-                \begin{minipage}{0.6\textwidth}
-
-                    \begin{figure}[H]
-                        \label{fig:}
-                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/1wuerfelpdf} %FIXME
-                        % [width=640px,
-                         %height=474px]
-                        \caption{PDF 1 Würfel 10000 Würfe}
-                    \end{figure}
-
-                \end{minipage}
-                \begin{minipage}{0.6\textwidth}
-
-                    \begin{figure}[H]
-                        \label{fig:}
-                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/2wuerfelpdf} %FIXME
-                        % [width=640px,
-                         %height=474px]
-                        \caption{PDF 2 Würfel 10000 Würfe}
-                    \end{figure}
-                \vspace{-1.5em}
-
-                \end{minipage}
-
-            \end{tabular}
-            \end{center}
+			Genau wie die Verteilungsdichtefunktion von zwei unanbhängigen Ereignissen sich aus der Faltung der einzelnen
+			Verteilungsdichtefunktionen ergibt, ergibt sich die Verteilungsdichtefunktion von mehreren unabhängigen Ereignissen
+			von der Faltung ihrer einzelnen Verteilungsdichtefunktionen.\\
+			Laut zentralem Grenzwertsatz erwarten wir, dass sich die Resultierenen Verteilungsdichtefunktionen immer mehr einer
+			Normalverteilung annähern. Genauer gesagt erwarten wir eine annäherung an die Gaußnormalverteilung.
 
                         %4 Grafiken:
             \begin{center}
@@ -189,7 +238,7 @@
 
                     \begin{figure}[H]
                         \label{fig:}
-                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/10wuerfelpdf} %FIXME
+                        \includegraphics[scale=0.5, trim = 2cm 6.5cm 1.5cm 8.5cm, clip]{./Bilder/10wuerfelpdf} %FIXME
                         % [width=640px, height=474px]
                         \caption{PDF 10 Würfel 10000 Würfe}
                     \end{figure}
@@ -199,7 +248,7 @@
 
                      \begin{figure}[H]
                         \label{fig:}
-                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/100wuerfelpdf} %FIXME
+                        \includegraphics[scale=0.5, trim = 2cm 6.5cm 1.5cm 8.5cm, clip]{./Bilder/100wuerfelpdf} %FIXME
                         % [width=640px, height=474px]
                         \caption{PDF 100 Würfel 10000 Würfe}
                     \end{figure}
@@ -219,7 +268,7 @@
 
                     \begin{figure}[H]
                         \label{fig:}
-                        \includegraphics[scale=0.6, trim = 3cm 8.5cm 3.5cm 8.5cm, clip]{./Bilder/1000wuerfelpdf} %FIXME
+                        \includegraphics[scale=0.5, trim = 2cm 6.5cm 1.5cm 8.5cm, clip]{./Bilder/1000wuerfelpdf} %FIXME
                         % [width=640px, height=474px]
                         \caption{PDF 1000 Würfel 10000 Würfe}
                     \end{figure}
@@ -227,8 +276,21 @@
                 \end{minipage}
 
             \end{tabular}
-            \end{center}
-    \end{quote}	
+            \end{center}			
+			
+                Die Häufigkeitsverteilungen aus den drei Simulationen bestätigen die Vermutung, dass die Verteilungen
+                sich immer mehr einer Gaußnormalverteilung anpassen.\\
+                Besonders bei den $100$ Würfeln und den $1000$ Würfeln sind einige starke Abweichungen zu beobachten. Es
+                ist auffällig, dass sie so stark ausfallen. Jedoch würden wir sie, wie auch die male davor, so erklären,
+                dass es um ein statistisch unabhängiges Experiment handelt bei dem einige Zahlen häufiger gewürfelt
+                werden als erwartet.
+		\end{quote}
+    \end{quote}
+\end{quote}
+           
+\section{Praktische Aufgaben}
+\begin{quote}
+  
     
     \subsection{Rauschbehafteter Übertagungskanal}
     \begin{quote}
@@ -309,33 +371,5 @@
 
 %--------------------------------------------------------------------
 %--------------------------------------------------------------------
-\section{Matlab-Code}
-\begin{quote}
-    \subsection{Aufgabe1.m bearbeitet}
-    \begin{quote}
-            \lstinputlisting[
-            caption={Aufgabe1 - Matlab-script},
-            label=lst:Matlab]
-            {./Matlab/Aufgabe1.m}
-    \end{quote}
-    
-    \subsection{Aufgabe2.m bearbeitet}
-    \begin{quote}
-            \lstinputlisting[
-            caption={Aufgabe2 - Matlab-script},
-            label=lst:Matlab]
-            {./Matlab/Aufgabe2.m}
-    \end{quote}
-    
-    \subsection{SNR.m bearbeitet}
-    \begin{quote}
-            \lstinputlisting[
-            caption={SNR - Matlab-script},
-            label=lst:Matlab]
-            {./Matlab/SNR.m}
-    \end{quote}
-    	
-\end{quote}
-
 
 \end{document}
