@@ -287,60 +287,143 @@
 		\end{quote}
     \end{quote}
 \end{quote}
-           
-\section{Praktische Aufgaben}
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+\section{Rauschbehafteter Übertragungskanal}
 \begin{quote}
-  
-    
-    \subsection{Rauschbehafteter Übertagungskanal}
+	\subsection{Theorie}
     \begin{quote}
-        Im nächsten Abschnitt haben wir uns mit einem Rauschbehafteten Übertragungskanal beschäftigt. Hierfür haben wir
-        an dem Telecommunications Trainer ein Pseudozufälliges Signal erzeugt und additiv Rauschen hinzugefügt(beim
-        ersten Durchgang $-20dB$, beim zweiten $-6dB$ und beim letzten $0dB$.\\
-        Anschließend haben wir das Originalsignal sowie das verrauschte Signal mit Hilfe des USB Oszilloskops
-        aufgenommen. Dank dieser Messung lässt sich nun auch noch die Mittelwerte der beiden Kanäle miteinander
-        vergleichen. Da es sich um das selbe Urspungssignal handlet lässt sich so besimmen ob die beiden Signale
-        zueinander versetzt sind und evt noch korrigiert werden müssen.\vspace{1em}
+        Bei der Übertragung eines Signals über einen Rauschbehafteten Kanal wird dieses Signal durch Dämpfung und
+        Rauschen beeinflusst. Rauschen wirkt sich negativ auf die Übertragung aus, da sich das Rauschen auf das
+        Nutzsignal addiert und es so verändert. Je höher die Amplitude des Rauschens desto mehr stört das Rauschen
+        das Nutzsignal.\\
+        Eine Möglichkeit die Auswirkung von Rauschen auf ein Signal zu erfassen ist der
+        Signal-Rausch-Abstand(SNR).
+        Zur Errechnung des SNR wird die Leistung des Signals ins Verhältniss zu der Leistung des Rauschens gesetzt.
         
-        Nach dieser Korrektur haben wir die Verteilungsdichtefunkton des Rauschens bestimmt und geplottet. Abschließend
-        haben wir noch das Signal-Rausch-Verhältniss der gemessenen Signale bestimmt. Dazu haben wir die Energie des
-        Eingangs- und Ausgangssignal bestimmt und aus dem Verhältniss das Signal-Rausch-Verhältniss bistimmt.\\
+        \begin{equation*}
+        	\begin{split}
+        		SNR = \frac{P_{Signal}}{P_{Rauschen}}
+        	\end{split}
+        \end{equation*}
+        
+        Je größer die Amplitude des Rauschens wird desto kleiner wird der Signal-Rausch-Abstand, was negativ ist.\\
+        Um den Signal-Rausch-Abstand bestimmen zu können benötigt man selbstverständlich gezielte Informationen über das
+        Nutzsignal sowie das Rauschsignal. 
+    \end{quote}
+    
+    \subsection{Durchführung}
+    \begin{quote}
+        Um einen Rauschbehafteten Übertragungskanal zu simulieren haben wir an dem Telecommunications Trainer ein
+        Pseudozufälliges Signal erzeugt. Dieses Signal besitzt einen Mittelwert der $\neq$ null ist.\\
+        Zu diesem Signal haben wir anschließend additiv Rauschen hinzugefügt. Beim ersten Durchgang $-20dB$, beim
+        zweiten $-6dB$ und beim letzten $0dB$. Alle drei Rauschsignale sind Mittelwertfreie Signale. Sie stellen Weißes
+        Rauschen dar mit einem Effektivwert von $0,5 V$ ($-20dB$), $2,45V$ ($-6dB$)  sowie $4,96 V$ ($0 dB$).
+        Dannach haben wir das Originalsignal sowie das verrauschte Signal mit Hilfe des USB Oszilloskops aufgenommen. 
+        Da das Eingangssignal einen Mittelwert $\neq$ null hat, das Rauschen jedoch ein Mittelwertfreies Signal
+        darstellt, wissen wir, dass jede Abweichung des Mittelwertes zwischen dem Eingangssignal und dem Ausganssignal
+        auf die Dämpfung des Kanals zurückzuführen ist. Daher vergleichen wir die Mittelwerte des Einganssignals und des
+        Ausgangssignals miteinander. Der Korrekturfaktor $\alpha = \frac{mean(A)}{mean(B)}$, der an das Ausgangssignal
+        ranmultipliziert wird, korrigiert somit die Dämpfung des Kanals.\vspace{1em}
+        
+        Nach dieser Korrektur haben wir die Häufichkeitsdichteverteilung des Rauschens bestimmt und geplottet.
+        Abschließend haben wir noch das Signal-Rausch-Verhältniss der gemessenen Signale bestimmt. Dazu haben wir die Energie des
+        Eingangs- und Ausgangssignal bestimmt und aus dem Verhältniss das Signal-Rausch-Verhältniss bestimmt.\\
         Für die Berechnung des SNR wird ursprünglich die Leistung der beiden Signale benötigt. Die Leistung
         Zeitdiskreter Signale werden folgendermaßen bestimmt:
         \begin{equation*}
-        	\begin{split}
-        		P_u(n_1, n_2) := \frac{1}{n_2 - n_1 + 1} \sum_{k=n_1}^{n_2} u^2 (k)
-        	\end{split}
+            \begin{split}
+                P_u(n_1, n_2) := \frac{1}{n_2 - n_1 + 1} \sum_{k=n_1}^{n_2} u^2 (k)
+            \end{split}
         \end{equation*}
         
         Die Variablen $n_1,n_2$ beschreiben zusammen das Zeitintervall des Signals. Da das Eingangssignal und das
         Ausgangssignal unserer Messung über das selbe Zeitintervall bestimmt wird kürzen sich bei der Berechnung des SNR
         dieses Zeitintervall gegenseitig raus und es reicht mit dem Energieverhältniss zu rechnen.\\
-        Bei den Signal-Rausch-Verhältniss Werten ist zu erwarten, dass sie sich für steigendes Rauschen verschlechtern
-        werden. Sprich die Messung bei $-20dB$ Rauschen wird den höhsten SNR Wert aufweisen und die Messung bei $0dB$
-        Rauschen den schlechtesten.
 
-        \subsubsection{Ergebnisse}
-		\begin{quote}
-		
-		\begin{figure}[H]
-        \centering
-            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen-20dB}
-                \caption{PDF Rauschanteil -20dB}
-        \end{figure}
         
-        \begin{figure}[H]
-        \centering
-            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen-6dB}
-                \caption{PDF Rauschanteil -6dB}
-        \end{figure}
+    \end{quote}
+    
+    \subsection{Auswertung}
+    \begin{quote}
+        Von den Häufigkeitsverteilungen der drei Rauschsignalen erwarten wir mit zunehmendem Rauschen eine zunehmend
+        breiter werdende Häufigkeitsverteilung. Außerdem erwarten wir zunehmend
+        schlechtere Signal-Rausch-Verhältnisse, welches sich durch niedrigere SNR Werte zeigen sollte.\vspace{1em}
         
-        \begin{figure}[H]
-        \centering
-            \includegraphics[scale=0.6, trim = 1cm 6.5cm 1cm 7.5cm, clip]{./Bilder/PDFRauschen0dB}
-                \caption{PDF Rauschanteil 0dB}
-        \end{figure}
+        Hier die Ergebnisse der Messung:
         
+               \begin{center}
+               \begin{tabular}{ll}
+        
+               \hspace{-4.5cm}
+                   \begin{minipage}{0.6\textwidth}
+        
+                       \begin{figure}[H]
+                           \includegraphics[scale=0.6, trim = 35mm 85mm 40mm 95mm, clip]{./Bilder/Rauschen-20dB}
+                           \caption{-20dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+                   \begin{minipage}{0.6\textwidth}
+                       \begin{figure}[H] 
+                           \includegraphics[scale=0.49, trim = 10mm 65mm 10mm 85mm, clip]{./Bilder/PDFRauschen-20dB}
+                           \caption{Häufigkeitsverteilung -20dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+               \end{tabular}
+               \end{center}
+        
+                       \begin{center}
+               \begin{tabular}{ll}
+        
+               \hspace{-4.5cm}
+                   \begin{minipage}{0.6\textwidth}
+        
+                       \begin{figure}[H]
+                           \includegraphics[scale=0.6, trim = 35mm 85mm 40mm 95mm, clip]{./Bilder/Rauschen-6dB}
+                           \caption{-6dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+                   \begin{minipage}{0.6\textwidth}
+                       \begin{figure}[H]
+                           \includegraphics[scale=0.49, trim = 10mm 65mm 10mm 85mm, clip]{./Bilder/PDFRauschen-6dB}
+                           \caption{Häufigkeitsverteilung -6dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+               \end{tabular}
+               \end{center}
+        
+                      \begin{center}
+               \begin{tabular}{ll}
+               
+                   \hspace{-4.5cm}
+                   \begin{minipage}{0.6\textwidth}
+        
+                       \begin{figure}[H]
+                           \includegraphics[scale=0.55, trim = 35mm 85mm 40mm 95mm, clip]{./Bilder/Rauschen0dB}
+                           \caption{0dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+                   \begin{minipage}{0.6\textwidth}
+                       \begin{figure}[H] 
+                           \includegraphics[scale=0.49, trim = 10mm 65mm 10mm 85mm, clip]{./Bilder/PDFRauschen0dB}
+                           \caption{Häufigkeitsverteilung 0dB Rauschen}
+                       \end{figure}
+        
+                   \end{minipage}
+        
+               \end{tabular}
+               \end{center}
+
         
         Neben der Verteilungsdichtefunktion des Rauschanteils haben wir auch noch die dazugehörige Gaußverteilung (in
         Rot) sowie die dazugehörige Laplaceverteilung geplottet. Die Verteilung von dem $-20dB$ Rauschen lässt sich
@@ -348,6 +431,8 @@
         Rauschen lassen sich der Gaußverteilung zuordnen. Daher liegt die Vermutung nahe, dass es sich bei der
         Verteilung bei $-20dB$ ebenfalls um eine Gaußverteilung handelt. \vspace{1em}
         
+        
+        Hier die Ergebniss der SNR-Messung:
             \begin{center}
                   \begin{tabular}{|c|c|}
                   \hline
@@ -360,15 +445,14 @@
             \caption{SNR des Rauschens}            
             \end{center}
     
+        Die Ergebnisse der Häufigkeitsverteilung entsprechen unseren Erwartungen. 
+    
         Bei dem Signal-Rausch-Verhältniss fällt auf, dass bei $14dB$ mehr Rauschen das SNR um $14dB$ absinkt. Und
         genauso beim nächsten Schritt von $6dB$ fällt das SNR um $5dB$. Daher kann man schon von einem linearen
         zusammenhang sprechen. Ein solches Verhalten haben wir erwartet. 
-    \end{quote}	
-\end{quote}	
-
-
-
-
+        
+    \end{quote}
+\end{quote}
 %--------------------------------------------------------------------
 %--------------------------------------------------------------------
 
