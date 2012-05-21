@@ -7,7 +7,7 @@
 \newcommand{\veranstaltung}{Praktikum Nachrichten\"ubertragung}
 \newcommand{\pdfautor}{\"Ozg\"u Dogan (326 048), Boris Henckell (325 779)}
 \newcommand{\autor}{\"Ozg\"u Dogan (326 048)\\ Boris Henckell (325 779)}
-\newcommand{\gruppe}{Gruppe: }
+\newcommand{\gruppe}{Gruppe: D03}
 %\newcommand{\betreuer}{Betreuer: Mahmoud Felk}
 
 
@@ -116,7 +116,7 @@
 	
 	\subsection{Theorie}
     \begin{quote}
-        Bei einer Verteilungsdichtefunktion handelt es sich um eine Funktion mit deren hilfe man die Wahrscheinlichkeit
+        Bei einer Verteilungsdichtefunktion handelt es sich um eine Funktion mit deren Hilfe man die Wahrscheinlichkeit
         eines Ereignissintervalls bestimmen kann. Hierfür wird die Verteilungsdichtefunktion über dieses
         Ereignissintervall integriert. Diese Art der Darstellung von Wahrscheinlichkeitsereignissen bietet sich
         besonders bei stetigen Verteilungen an.\vspace{1em}
@@ -141,41 +141,48 @@
         \subsubsection{10000 facher  Wurf eines Würfels}
         \begin{quote}
             Für die erste Teilaufgabe haben wir die Datei Aufgabe1.m so ergänzt, dass die Anzahl der Treffer durch die
-            Anzahl der Würfe geteilt wird. Dadurch errechnen wir uns die Häufigkeitsverteilung normiert wird und so ihre
-            Summe genau 1 ist. Das Ergebniss haben wir plotten lassen.
+            Anzahl der Würfe geteilt wird. Dadurch errechnen wir uns die
+            Häufigkeitsverteilung, die normiert wird, sodass ihre Summe genau 1
+            ist.
+            Das Ergebniss haben wir plotten lassen.
 
         \end{quote}
         
         \subsubsection{10000 facher Wurf zweier Würfel}
         \begin{quote}
             In der zweiten Teilaufgabe haben wir die Simulation soweit verändert, dass bei jedem Wurf zwei Würfel
-            simmuliert wurden deren Augenzahl aufsummiert wurden. Damit auch der zweite Würfel unabhängig simuliert wird haben wir einen zweiten Vektor
-            erstellt mit einem zufälligen $10000$-fachen Würfelereigniss und die beiden Vektoren addiert. In hinblick auf die
-            folgende Aufgabe, bei der wesentlich mehr Würfel pro wurf addiert werden sollten, wurde uns aber auch beigebracht,
-            dass die rand-funktion schon eine Lösung für dieses Problem integriert hat. Und desshalb haben wir anstatt des
-            zweiten Vektors einfach den zweiten Parameter der rand-funktion auf zwei gestellt und somit unabhängige Würfel
-            simuliert.\\
+            simmuliert wurden deren Augenzahl aufsummiert wurden. Damit auch der
+            zweite Würfel unabhängig simuliert wird, haben wir einen zweiten
+            Vektor erstellt mit einem zufälligen $10000$-fachen Würfelereigniss und die beiden Vektoren addiert. 
+            In hinblick auf die folgende Aufgabe, bei der wesentlich mehr Würfel
+            pro Wurf addiert werden sollten, wurde uns aber auch beigebracht,
+            dass die rand-funktion schon eine Lösung für dieses Problem
+            integriert hat. Und deshalb haben wir anstatt des zweiten Vektors einfach den zweiten Parameter der rand-funktion 
+            auf zwei gestellt und somit unabhängige Würfel simuliert.\\
             Auch von dieser Simulation haben wir die normierte Häufigkeitsdichte errechnet und
             plotten lassen.\\
         \end{quote}
         
         \subsubsection{10000 facher Wurf meherer Würfel}
         \begin{quote}
-            Um den zentralen Grenzwertsatz der Statistik nachzuvollziehen erhöhen wir in der dritten Teilaufgabe
-            schrittweise die Anzahl der Würfel, die miteinander addiert werden. Anschließend erstellen wir jeweils die
-            Häufigkeitsdichte sowie die dazupassende geschätzte Verteilungsdichtefunktion.
+            Um den zentralen Grenzwertsatz der Statistik nachzuvollziehen
+            erhöhten wir in der dritten Teilaufgabe schrittweise die Anzahl der Würfel, die miteinander addiert werden. 
+            Anschließend erstellten wir jeweils die
+            Häufigkeitsdichte sowie die dazu passende geschätzte
+            Verteilungsdichtefunktion.
             Laut Grenzwertsatz erwarten wir, dass sich die resultierende Verteilungsdichtefunktion sich an eine Gaußverteilung anpasst.
         \end{quote}        
     \end{quote}
 	
 	\subsection{Auswertung}
     \begin{quote}
-        Da es sich bei dieser Simulation um ein Diskretes ereigniss handelt werden die daraus resultierenden
-        Häufigkeitsverteilungen selbstverständlich auch diskret sein. Eine Verteilungsdichtefunktion ist hingegen eine
-        stetige Funktion. Daher lässen sich die beiden Funktionen nur an den Diskreten Punkten miteinander
+        Da es sich bei dieser Simulation um ein diskretes Ereigniss handelt
+        werden die daraus resultierenden Häufigkeitsverteilungen selbstverständlich auch diskret sein. 
+        Eine Verteilungsdichtefunktion ist hingegen eine
+        stetige Funktion. Daher lassen sich die beiden Funktionen nur an den Diskreten Punkten miteinander
         vergleichen.\\
-        Ansonsten sit für alle Simulationen zu erwarten, dass sich die Häufigkeitsverteilungen den geschätzten
-        Verteilungsdichtefunktionen grob ähneln werden.
+        Ansonsten ist für alle Simulationen zu erwarten, dass sich die
+        Häufigkeitsverteilungen den geschätzten Verteilungsdichtefunktionen grob ähneln werden.
         
         \subsubsection{10000 facher Wurf eines Würfels}
         \begin{quote}
@@ -195,21 +202,22 @@
                 wurden als erwartet.
                 Diese Abweichung erklären wir uns mit damit, dass es sich ein statistisch unabhängiges Experiment
                 handelt. Daher können einige Zahlen häufiger gewürfelt werden als andere.\\
-                Je mehr Würfe wir simulieren würden desto mehr müssten sich die Simulierten Werte an die erwarteten
-                anpassen.\\
+                Je mehr Würfe wir simulieren würden, desto mehr müssten sich die
+                Simulierten Werte an die erwarteten anpassen.\\
         \end{quote}
         
         \subsubsection{10000 facher Wurf zweier Würfel}
         \begin{quote}
             Die Verteilungsdichtefunktion von zwei bzw. mehreren unabhängigen Ereignissen lässt sich auch als Faltung
             der einzelnen Verteilungsdichtefunktionen darstellen. In Falle des einfachen Würfelwurfes hat sich die
-            Verteilungsdichtefunktion als Rechteck herausgestellt. Die Faltung von zwei Rechtecken ergint wiederum ein
-            Dreieck. Für die Verteilungsdichtefunktion von zwei Würfeln deren Augenzahlen addiert werden erwarten wir
-            daher eine Dreieckförmige Verteilungsdichtefunktion.\\
-            Die erwartete Dreieckförmige Verteilungsdichtefunktion lässt sich auch auf andere Weise erschließen. Die
+            Verteilungsdichtefunktion als Rechteck herausgestellt. Die Faltung
+            von zwei Rechtecken ergibt wiederum ein Dreieck. Für die
+            Verteilungsdichtefunktion von zwei Würfeln, deren Augenzahlen
+            addiert werden, erwarten wir daher eine dreieckförmige Verteilungsdichtefunktion.\\
+            Die erwartete dreieckförmige Verteilungsdichtefunktion lässt sich auch auf andere Weise erschließen. Die
             möglichen Ereignisse dieser Simulation sind die Zahlen von $2$ bis $12$. Wobei es für die beiden äußeren
-            Ereignisse jeweils nur eine mögliche kombination der zwei Würfel gibt. Für das Ereigniss $7$ gibt es
-            hingegen $6$ verschiedene Würfelkombinationen. Daher ist das Würfeln einer $7$ auch $6$ mal Wahrscheinlicher
+            Ereignisse jeweils nur eine mögliche Kombination der zwei Würfel
+            gibt. Für das Ereigniss $7$ gibt es hingegen $6$ verschiedene Würfelkombinationen. Daher ist das Würfeln einer $7$ auch $6$ mal Wahrscheinlicher
             als das Würfeln einer $2$ oder $12$.\\
             
                 \begin{figure}[H] \centering
@@ -226,8 +234,9 @@
 			Genau wie die Verteilungsdichtefunktion von zwei unanbhängigen Ereignissen sich aus der Faltung der einzelnen
 			Verteilungsdichtefunktionen ergibt, ergibt sich die Verteilungsdichtefunktion von mehreren unabhängigen Ereignissen
 			von der Faltung ihrer einzelnen Verteilungsdichtefunktionen.\\
-			Laut zentralem Grenzwertsatz erwarten wir, dass sich die Resultierenen Verteilungsdichtefunktionen immer mehr einer
-			Normalverteilung annähern. Genauer gesagt erwarten wir eine annäherung an die Gaußnormalverteilung.
+			Laut zentralem Grenzwertsatz erwarten wir, dass sich die resultierenden
+			Verteilungsdichtefunktionen immer mehr einer Normalverteilung annähern. 
+			Genauer gesagt erwarten wir eine Annäherung an die Gaußnormalverteilung.
 
                         %4 Grafiken:
             \begin{center}
@@ -281,9 +290,9 @@
                 Die Häufigkeitsverteilungen aus den drei Simulationen bestätigen die Vermutung, dass die Verteilungen
                 sich immer mehr einer Gaußnormalverteilung anpassen.\\
                 Besonders bei den $100$ Würfeln und den $1000$ Würfeln sind einige starke Abweichungen zu beobachten. Es
-                ist auffällig, dass sie so stark ausfallen. Jedoch würden wir sie, wie auch die male davor, so erklären,
-                dass es um ein statistisch unabhängiges Experiment handelt bei dem einige Zahlen häufiger gewürfelt
-                werden als erwartet.
+                ist auffällig, dass sie so stark ausfallen. Jedoch würden wir sie, wie auch die Male davor, so erklären,
+                dass es um ein statistisch unabhängiges Experiment handelt, bei
+                dem einige Zahlen häufiger gewürfelt werden als erwartet.
 		\end{quote}
     \end{quote}
 \end{quote}
@@ -293,12 +302,12 @@
 \begin{quote}
 	\subsection{Theorie}
     \begin{quote}
-        Bei der Übertragung eines Signals über einen Rauschbehafteten Kanal wird dieses Signal durch Dämpfung und
-        Rauschen beeinflusst. Rauschen wirkt sich negativ auf die Übertragung aus, da sich das Rauschen auf das
-        Nutzsignal addiert und es so verändert. Je höher die Amplitude des Rauschens desto mehr stört das Rauschen
-        das Nutzsignal.\\
-        Eine Möglichkeit die Auswirkung von Rauschen auf ein Signal zu erfassen ist der
-        Signal-Rausch-Abstand(SNR).
+        Bei der Übertragung eines Signals über einen rauschbehafteten Kanal wird
+        dieses Signal durch Dämpfung und Rauschen beeinflusst. Rauschen wirkt sich negativ auf die Übertragung aus, da sich das Rauschen auf das
+        Nutzsignal addiert und es so verändert. Je höher die Amplitude des
+        Rauschens, desto mehr stört das Rauschen das Nutzsignal.\\
+        Eine Möglichkeit, die Auswirkung von Rauschen auf ein Signal zu
+        erfassen, ist der Signal-Rausch-Abstand (SNR).
         Zur Errechnung des SNR wird die Leistung des Signals ins Verhältniss zu der Leistung des Rauschens gesetzt.
         
         \begin{equation*}
@@ -307,9 +316,10 @@
         	\end{split}
         \end{equation*}
         
-        Je größer die Amplitude des Rauschens wird desto kleiner wird der Signal-Rausch-Abstand, was negativ ist.\\
-        Um den Signal-Rausch-Abstand bestimmen zu können benötigt man selbstverständlich gezielte Informationen über das
-        Nutzsignal sowie das Rauschsignal. 
+        Je größer die Amplitude des Rauschens wird, desto kleiner wird der
+        Signal-Rausch-Abstand, was negativ ist.\\
+        Um den Signal-Rausch-Abstand bestimmen zu können, benötigt man
+        selbstverständlich gezielte Informationen über das Nutzsignal sowie das Rauschsignal. 
     \end{quote}
     
     \subsection{Durchführung}
@@ -317,8 +327,9 @@
         Um einen Rauschbehafteten Übertragungskanal zu simulieren haben wir an dem Telecommunications Trainer ein
         Pseudozufälliges Signal erzeugt. Dieses Signal besitzt einen Mittelwert der $\neq$ null ist.\\
         Zu diesem Signal haben wir anschließend additiv Rauschen hinzugefügt. Beim ersten Durchgang $-20dB$, beim
-        zweiten $-6dB$ und beim letzten $0dB$. Alle drei Rauschsignale sind Mittelwertfreie Signale. Sie stellen Weißes
-        Rauschen dar mit einem Effektivwert von $0,5 V$ ($-20dB$), $2,45V$ ($-6dB$)  sowie $4,96 V$ ($0 dB$).
+        zweiten $-6dB$ und beim letzten $0dB$. Alle drei Rauschsignale sind
+        mittelwertfreie Signale. Sie stellen Weißes Rauschen dar mit einem Effektivwert von $0,5 V$ ($-20dB$), 
+        $2,45V$ ($-6dB$)  sowie $4,96 V$ ($0 dB$).
         Dannach haben wir das Originalsignal sowie das verrauschte Signal mit Hilfe des USB Oszilloskops aufgenommen. 
         Da das Eingangssignal einen Mittelwert $\neq$ null hat, das Rauschen jedoch ein Mittelwertfreies Signal
         darstellt, wissen wir, dass jede Abweichung des Mittelwertes zwischen dem Eingangssignal und dem Ausganssignal
@@ -328,7 +339,8 @@
         
         Nach dieser Korrektur haben wir die Häufichkeitsdichteverteilung des Rauschens bestimmt und geplottet.
         Abschließend haben wir noch das Signal-Rausch-Verhältniss der gemessenen Signale bestimmt. Dazu haben wir die Energie des
-        Eingangs- und Ausgangssignal bestimmt und aus dem Verhältniss das Signal-Rausch-Verhältniss bestimmt.\\
+        Eingangs- und Ausgangssignal bestimmt und aus dem Verhältniss das
+        Signal-Rausch-Verhältniss berechnet.\\
         Für die Berechnung des SNR wird ursprünglich die Leistung der beiden Signale benötigt. Die Leistung
         Zeitdiskreter Signale werden folgendermaßen bestimmt:
         \begin{equation*}
@@ -338,8 +350,9 @@
         \end{equation*}
         
         Die Variablen $n_1,n_2$ beschreiben zusammen das Zeitintervall des Signals. Da das Eingangssignal und das
-        Ausgangssignal unserer Messung über das selbe Zeitintervall bestimmt wird kürzen sich bei der Berechnung des SNR
-        dieses Zeitintervall gegenseitig raus und es reicht mit dem Energieverhältniss zu rechnen.\\
+        Ausgangssignal unserer Messung über das selbe Zeitintervall bestimmt
+        wird; kürzen sich bei der Berechnung des SNR dieses Zeitintervall gegenseitig raus und es reicht mit dem 
+        Energieverhältniss zu rechnen.\\
 
         
     \end{quote}
@@ -449,7 +462,7 @@
     
         Bei dem Signal-Rausch-Verhältniss fällt auf, dass bei $14dB$ mehr Rauschen das SNR um $14dB$ absinkt. Und
         genauso beim nächsten Schritt von $6dB$ fällt das SNR um $5dB$. Daher kann man schon von einem linearen
-        zusammenhang sprechen. Ein solches Verhalten haben wir erwartet. 
+        Zusammenhang sprechen. Ein solches Verhalten haben wir erwartet. 
         
     \end{quote}
 \end{quote}
